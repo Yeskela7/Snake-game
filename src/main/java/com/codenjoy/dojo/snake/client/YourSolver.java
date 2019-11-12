@@ -10,12 +10,12 @@ package com.codenjoy.dojo.snake.client;
  * it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public
  * License along with this program.  If not, see
  * <http://www.gnu.org/licenses/gpl-3.0.html>.
@@ -36,6 +36,7 @@ public class YourSolver implements Solver<Board> {
 
     private Dice dice;
     private Board board;
+    private AiSnake aiSnake;
 
     public YourSolver(Dice dice) {
         this.dice = dice;
@@ -45,8 +46,38 @@ public class YourSolver implements Solver<Board> {
     public String get(Board board) {
         this.board = board;
         System.out.println(board.toString());
+        int appleX = board.getApples().get(0).getX();
+        int appleY = board.getApples().get(0).getY();
 
-        return Direction.UP.toString();
+        int headX = board.getHead().getX();
+        int headY = board.getHead().getY();
+
+        int stoneX = board.getStones().get(0).getX();
+        int stoneY = board.getStones().get(0).getY();
+
+        Direction direction = Direction.STOP;
+        {
+            int difX = headX - appleX;
+            int difY = headY - appleY;
+
+
+            if (difX < 0) {
+                direction = Direction.RIGHT;
+            }
+            if (difX > 0) {
+                direction = Direction.LEFT;
+            }
+            if (difX == 0) {
+                if (difY < 0) {
+                    direction = Direction.UP;
+                }
+                if (difY > 0) {
+                    direction = Direction.DOWN;
+                }
+            }
+
+        }
+        return direction.toString();
     }
 
     public static void main(String[] args) {
