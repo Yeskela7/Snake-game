@@ -15,7 +15,7 @@ public class AiSnake {
         int headX = board.getHead().getX();
         int headY = board.getHead().getY();
 
-        Direction direction = Direction.UP;
+        Direction direction = Direction.STOP;
 
         while (!board.isGameOver()) {
             int difX = headX - appleX;
@@ -29,15 +29,13 @@ public class AiSnake {
                 direction = Direction.LEFT;
                 return direction;
             }
-            if (difX == 0) {
-                if (difY < 0) {
-                    direction = Direction.UP;
-                    return direction;
-                }
-                if (difY > 0) {
-                    direction = Direction.DOWN;
-                    return direction;
-                }
+            if (difY < 0) {
+                direction = Direction.UP;
+                return direction;
+            }
+            if (difY > 0) {
+                direction = Direction.DOWN;
+                return direction;
             }
         }
         return direction;

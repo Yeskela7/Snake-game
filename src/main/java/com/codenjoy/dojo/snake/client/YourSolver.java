@@ -27,13 +27,15 @@ import com.codenjoy.dojo.client.Solver;
 import com.codenjoy.dojo.client.WebSocketRunner;
 import com.codenjoy.dojo.services.Dice;
 import com.codenjoy.dojo.services.Direction;
+import com.codenjoy.dojo.services.Point;
 import com.codenjoy.dojo.services.RandomDice;
+
 
 /**
  * User: your name
  */
 public class YourSolver implements Solver<Board> {
-
+//
     private Dice dice;
     private Board board;
     private AiSnake aiSnake;
@@ -44,41 +46,11 @@ public class YourSolver implements Solver<Board> {
 
     @Override
     public String get(Board board) {
-        this.board = board;
-        System.out.println(board.toString());
-        int appleX = board.getApples().get(0).getX();
-        int appleY = board.getApples().get(0).getY();
-
-        int headX = board.getHead().getX();
-        int headY = board.getHead().getY();
-
-        int stoneX = board.getStones().get(0).getX();
-        int stoneY = board.getStones().get(0).getY();
-
-        Direction direction = Direction.STOP;
-        {
-            int difX = headX - appleX;
-            int difY = headY - appleY;
-
-
-            if (difX < 0) {
-                direction = Direction.RIGHT;
-            }
-            if (difX > 0) {
-                direction = Direction.LEFT;
-            }
-            if (difX == 0) {
-                if (difY < 0) {
-                    direction = Direction.UP;
-                }
-                if (difY > 0) {
-                    direction = Direction.DOWN;
-                }
-            }
-
-        }
-        return direction.toString();
+return null;
     }
+
+
+
 
     public static void main(String[] args) {
         WebSocketRunner.runClient(
@@ -87,5 +59,4 @@ public class YourSolver implements Solver<Board> {
                 new YourSolver(new RandomDice()),
                 new Board());
     }
-
 }
