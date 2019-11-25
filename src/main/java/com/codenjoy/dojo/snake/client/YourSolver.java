@@ -35,7 +35,7 @@ import com.codenjoy.dojo.services.RandomDice;
  * User: your name
  */
 public class YourSolver implements Solver<Board> {
-//
+    //
     private Dice dice;
     private Board board;
     private AiSnake aiSnake;
@@ -46,15 +46,14 @@ public class YourSolver implements Solver<Board> {
 
     @Override
     public String get(Board board) {
-return null;
+        AiSnake snake = new AiSnake(board);
+        Direction direction = snake.solve();
+        return direction.toString();
     }
-
-
 
 
     public static void main(String[] args) {
         WebSocketRunner.runClient(
-                // paste here board page url from browser after registration
                 "http://104.248.23.201/codenjoy-contest/board/player/62lu5levxin3q5iq9cvw?code=1972076043854070041",
                 new YourSolver(new RandomDice()),
                 new Board());

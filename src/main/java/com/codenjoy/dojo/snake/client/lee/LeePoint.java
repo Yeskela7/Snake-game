@@ -52,6 +52,6 @@ public class LeePoint {
 
     @Override
     public int hashCode() {
-        return Objects.hash(x, y);
+        return x << 16 + y;
     }
 }
