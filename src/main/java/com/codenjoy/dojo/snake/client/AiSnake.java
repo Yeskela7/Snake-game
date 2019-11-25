@@ -2,8 +2,6 @@ package com.codenjoy.dojo.snake.client;
 
 import com.codenjoy.dojo.services.Direction;
 import com.codenjoy.dojo.services.Point;
-import com.codenjoy.dojo.snake.client.lee.Lee;
-import com.codenjoy.dojo.snake.client.lee.LeePoint;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +20,8 @@ public class AiSnake {
         gameOver = board.isGameOver();
         stone = board.getStones().get(0);
         apple = board.getApples().get(0);
-        List<Point> snake = board.getSnake();
         snake_head = board.getHead();
+        List<Point> snake = board.getSnake();
         int dimX = walls.stream().mapToInt(Point::getX).max().orElse(0) + 1;
         int dimY = walls.stream().mapToInt(Point::getY).max().orElse(0) + 1;
         obstacles.addAll(walls);

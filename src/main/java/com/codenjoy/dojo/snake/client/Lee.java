@@ -1,6 +1,7 @@
-package com.codenjoy.dojo.snake.client.lee;
+package com.codenjoy.dojo.snake.client;
 
 import com.codenjoy.dojo.services.Point;
+import com.codenjoy.dojo.snake.client.LeePoint;
 
 import java.util.*;
 import java.util.stream.Collectors;

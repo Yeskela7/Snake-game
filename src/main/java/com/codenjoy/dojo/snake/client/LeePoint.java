@@ -1,8 +1,6 @@
-package com.codenjoy.dojo.snake.client.lee;
+package com.codenjoy.dojo.snake.client;
 
 import com.codenjoy.dojo.services.Point;
-
-import java.util.Objects;
 
 public class LeePoint {
 
